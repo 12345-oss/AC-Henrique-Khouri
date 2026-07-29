@@ -1,8 +1,7 @@
-const mongoose = require ('mongoose')
+require('dotenv').config()
+const mongoose = require('mongoose')
 
-const conn = async()=>{
-    //mongoAtlas
-    const atlas = await mongoose.connect('mongodb+srv://henrique:hmk080326@cluster0.o9ghv.mongodb.net/?retryWrites=true&w=majority')
-}
+// A string de conexao vem da variavel de ambiente MONGODB_URI
+const conn = async()=>{ await mongoose.connect(process.env.MONGODB_URI) }
 
 module.exports = conn
